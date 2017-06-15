@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-group row">
     <item v-for="item in news" :item="item"></item>
   </div>
 </template>
@@ -16,27 +16,21 @@ export default {
       news: [{
         id: 1,
         title: 'News A',
-        contents: 'Contents A',
+        contents: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       }, {
         id: 2,
         title: 'News B',
-        contents: 'Project B',
+        contents: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       }, {
         id: 3,
         title: 'News C',
-        contents: 'Project C',
+        contents: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
       }, {
         id: 4,
         title: 'News D',
-        contents: 'Project D',
+        contents: 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
       }],
     };
   },
 };
 </script>
-
-<style scoped>
-p.tasks {
-  text-align: center;
-}
-</style>

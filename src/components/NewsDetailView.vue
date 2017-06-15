@@ -1,8 +1,8 @@
 <template>
-  <div class="item-view" v-show="item">
-    <h1><a href="/">Contents</a></h1>
+  <div class="item-view row" v-show="item">
+    <h1><a href="/">Detail</a></h1>
     <item :item="item"></item>
-    <p class="itemtext" v-if="hasText" v-html="item.text"></p>
+    <p class="itemtext" v-html="item.text"></p>
   </div>
 </template>
 

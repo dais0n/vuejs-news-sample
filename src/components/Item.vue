@@ -1,18 +1,23 @@
 <template>
-  <div class='ui centered card'>
-    <div class="content">
-      <div class='header'>
-          <a :href="'/item/' + item.id">{{ item.title }}</a>
-      </div>
-      <div class='meta'>
-          {{ item.contents }}
-      </div>
+    <div class="newsitem">
+      <a :href="'/news/' + news.id" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ news.title }}</h4>
+        <p class="list-group-item-text">{{ news.contents }}</p>
+      </a>
     </div>
-  </div>
 </template>
+
+<style>
+img.thumbnail {
+    float: left;
+}
+p.list-group-item-text {
+    word-wrap: break-word;
+}
+</style>
 
 <script type="text/javascript">
   export default {
-    props: ['item'],
+    props: ['news'],
   };
 </script>

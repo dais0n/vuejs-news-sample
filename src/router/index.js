@@ -1,14 +1,14 @@
-import NewsList from '../components/NewsList';
-import Contents from '../components/Contents';
+import NewsListView from '../components/NewsListView';
+import NewsDetailView from '../components/NewsDetailView';
 
 export default [
   {
     path: '/',
-    component: NewsList,
+    component: NewsListView,
   },
   {
-    path: '/item/:id',
-    component: Contents,
+    path: '/news/:id',
+    component: NewsDetailView,
   },
 ];
 

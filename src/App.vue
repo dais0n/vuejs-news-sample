@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper">
+  <div class="container">
     <!-- header -->
     <div id="header">
       <h1><a href="/">Daison News</a></h1>
