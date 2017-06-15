@@ -1,8 +1,8 @@
 <template>
     <div class="newsitem">
-      <a :href="'/news/' + news.id" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ news.title }}</h4>
-        <p class="list-group-item-text">{{ news.contents }}</p>
+      <a :href="'/item/' + item.id" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ item.title }}</h4>
+        <p class="list-group-item-text">{{ item.contents }}</p>
       </a>
     </div>
 </template>
@@ -18,6 +18,6 @@ p.list-group-item-text {
 
 <script type="text/javascript">
   export default {
-    props: ['news'],
+    props: ['item'],
   };
 </script>
