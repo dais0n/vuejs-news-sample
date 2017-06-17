@@ -5,3 +5,9 @@
     </nav>
    </div>
 </template>
+<style>
+.navbar
+{
+  margin-bottom: 0px;
+}
+</style>
