@@ -1,44 +1,32 @@
 <template>
-  <div class="item-view row" v-show="item">
-    <h1><a href="/">Detail</a></h1>
-    <item :item="item"></item>
-    <p class="itemtext" v-html="item.text"></p>
+  <div class="row">
+    <news-detail :newsdetail="newsdetail"></news-detail>
   </div>
 </template>
 
 <script>
-import Item from './Item';
+import axios from 'axios';
+import NewsDetail from './NewsDetail';
 
 export default {
   components: {
-    Item,
+    NewsDetail,
   },
   data() {
     return {
-      news: [{
-        id: 1,
-        title: 'News A',
-        contents: 'Contents A',
-      }, {
-        id: 2,
-        title: 'News B',
-        contents: 'Project B',
-      }, {
-        id: 3,
-        title: 'News C',
-        contents: 'Project C',
-      }, {
-        id: 4,
-        title: 'News D',
-        contents: 'Project D',
-      }],
-      item: {
-        id: 1,
-        title: 'News A',
-        contents: 'Contents A',
-      },
+      newsdetail: {},
     };
   },
+  created() {
+    const url = `http://localhost:3000/newslist/${this.$route.params.id}`;
+    axios.get(url)
+    .then((response) => {
+      // JSON responses are automatically parsed.
+      this.newsdetail = response.data;
+    })
+    .catch((e) => {
+      this.errors.push(e);
+    });
+  },
 };
-
 </script>

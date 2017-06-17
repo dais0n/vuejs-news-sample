@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <!-- header -->
-    <div id="header">
-      <h1><a href="/">Daison News</a></h1>
-    </div>
+    <nav-header></nav-header>
     <!-- main view -->
     <router-view
       class="view"
@@ -13,3 +11,13 @@
     </router-view>
   </div>
 </template>
+
+<script>
+import NavHeader from './components/NavHeader';
+
+export default {
+  components: {
+    NavHeader,
+  },
+};
+</script>

@@ -1,36 +1,31 @@
 <template>
   <div class="list-group row">
-    <item v-for="item in news" :item="item"></item>
+    <news v-for="news in newslist" :key="news.id" :news="news"></news>
   </div>
 </template>
 
 <script type = "text/javascript" >
-import Item from './Item';
+import axios from 'axios';
+import News from './News';
 
 export default {
   components: {
-    Item,
+    News,
   },
   data() {
     return {
-      news: [{
-        id: 1,
-        title: 'News A',
-        contents: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      }, {
-        id: 2,
-        title: 'News B',
-        contents: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
-      }, {
-        id: 3,
-        title: 'News C',
-        contents: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
-      }, {
-        id: 4,
-        title: 'News D',
-        contents: 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-      }],
+      newslist: [],
     };
+  },
+  created() {
+    axios.get('http://localhost:3000/newslist')
+    .then((response) => {
+      // JSON responses are automatically parsed.
+      this.newslist = response.data;
+    })
+    .catch((e) => {
+      this.errors.push(e);
+    });
   },
 };
 </script>
