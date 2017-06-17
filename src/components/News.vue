@@ -1,7 +1,9 @@
 <template>
-    <div class="news">
+    <div class="news" >
       <a :href="'/news/' + news.id" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ news.title }}</h4>
+        <img src="" alt="サンプル" width="65" height="65" class="thumbnail">
+        <h4 class="newstitle">{{ news.title }}</h4>
+        <div style="clear:left;"></div>
       </a>
     </div>
 </template>
@@ -9,9 +11,10 @@
 <style>
 img.thumbnail {
     float: left;
+    margin-right: 10px;
 }
-p.list-group-item-text {
-    word-wrap: break-word;
+h4.newstitle {
+    margin-top: 20px;
 }
 </style>
 

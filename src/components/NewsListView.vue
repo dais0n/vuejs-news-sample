@@ -1,6 +1,12 @@
 <template>
-  <div class="list-group row">
-    <news v-for="news in newslist" :key="news.id" :news="news"></news>
+  <div class= "row">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="/">最新記事</a></li>
+        <li><a href="/">人気記事</a></li>
+    </ul>
+      <div class="list-group">
+        <news v-for="news in newslist" :key="news.id" :news="news"></news>
+      </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <!-- header -->
+    <!-- navheader -->
     <nav-header></nav-header>
     <!-- main view -->
     <router-view
