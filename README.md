@@ -1,6 +1,9 @@
-# vuejs-sample
+# vuejs-news-sample
 
 > A Vue.js project
+
+## demo
+![タイトル](https://raw.githubusercontent.com/wiki/dais0n/vuejs-news-sample/vuejs-news-sample.gif)
 
 ## Build Setup
 
