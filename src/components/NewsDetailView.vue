@@ -18,8 +18,8 @@ export default {
     };
   },
   created() {
-    const url = `http://localhost:3000/newslist/${this.$route.params.id}`;
-    axios.get(url)
+    const newsUrl = `http://localhost:3000/newslist/${this.$route.params.id}`;
+    axios.get(newsUrl)
     .then((response) => {
       // JSON responses are automatically parsed.
       this.newsdetail = response.data;
