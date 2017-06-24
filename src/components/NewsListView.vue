@@ -25,11 +25,13 @@ export default {
     return {
       newslist: [],
       page: 1,
+      from: 0,
     };
   },
   created() {
     axios.get('http://localhost:3000/newslist?_page=1')
     .then((response) => {
+      this.from = JSON.parse(JSON.stringify(response.data[response.data.length - 1])).id;
       this.newslist = response.data;
     })
     .catch((e) => {
@@ -38,20 +40,20 @@ export default {
   },
   methods: {
     onInfinite() {
-      if (this.page < 4) {
-        this.page += 1;
-        const newslistUrl = `http://localhost:3000/newslist?_page=${this.page}`;
-        axios.get(newslistUrl)
-        .then((response) => {
-          this.newslist = this.newslist.concat(response.data);
-          this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
-        })
-         .catch((e) => {
-           this.errors.push(e);
-         });
-      } else {
-        this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
-      }
+      this.page += 1;
+      const newslistUrl = `http://localhost:3000/newslist?_page=${this.page}`;
+      axios.get(newslistUrl)
+      .then((response) => {
+        if (response.data.length === 0 || this.newslist.length >= 10) {
+          this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+        }
+        this.from = JSON.parse(JSON.stringify(response.data[response.data.length - 1])).id;
+        this.newslist = this.newslist.concat(response.data);
+        this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+      })
+       .catch(() => {
+         this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+       });
     },
   },
 };
