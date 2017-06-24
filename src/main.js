@@ -9,7 +9,7 @@ import routess from './router';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: __dirname,
   routes: routess,
 });
